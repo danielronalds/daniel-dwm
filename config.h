@@ -1,5 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 
+/* Volume and brightness keys */
+#include <X11/XF86keysym.h>
+
+
 /* appearance */
 static const unsigned int borderpx       = 1;   /* border pixel of windows */
 static const unsigned int snap           = 32;  /* snap pixel */
@@ -84,7 +88,6 @@ static char *colors[][ColCount] = {
 
 
 static const char *const autostart[] = {
-	"nitrogen --restore", NULL,
     "~/bar.sh", NULL,
 	NULL /* terminate */
 };
@@ -224,12 +227,32 @@ static const char *dmenucmd[] = {
 };
 static const char *termcmd[]  = { "kitty", NULL };
 
+// Brightness command
+static const char *brightnessup[] = {"light", "-A", "5", NULL};
+static const char *brightnessdown[] = {"light", "-U", "5", NULL};
 
+// Volume command
+static const char *volumeup[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "+10%", NULL};
+static const char *volumedown[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "-10%", NULL};
+//static const char *volumetoggle[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "toggle", NULL};
+static const char *volumetoggle[] = {"amixer", "set", "Master", "toggle", NULL};
 
 static Key keys[] = {
 	/* modifier                     key            function                argument */
+
+    // Applications
 	{ MODKEY,                       XK_p,          spawn,                  {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return,     spawn,                  {.v = termcmd } },
+
+    // Volume Keys
+    {0,                             XF86XK_AudioRaiseVolume, spawn,        {.v = volumeup } },
+    {0,                             XF86XK_AudioLowerVolume, spawn,        {.v = volumedown } },
+    {0,                             XF86XK_AudioMute,        spawn,        {.v = volumetoggle } },
+
+    // Brightness Keys
+    {0,                             XF86XK_MonBrightnessUp,  spawn,        {.v = brightnessup } },
+    {0,                             XF86XK_MonBrightnessDown,spawn,        {.v = brightnessdown } },
+
 	{ MODKEY,                       XK_b,          togglebar,              {0} },
 	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },
 	{ MODKEY,                       XK_k,          focusstack,             {.i = -1 } },
@@ -259,8 +282,8 @@ static Key keys[] = {
 	{ MODKEY|Mod4Mask,              XK_0,          togglegaps,             {0} },
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,          defaultgaps,            {0} },
 	{ MODKEY,                       XK_Tab,        view,                   {0} },
-	{ MODKEY|ShiftMask,             XK_c,          killclient,             {0} },
-	{ MODKEY|ShiftMask,             XK_q,          quit,                   {0} },
+	{ MODKEY|ShiftMask,             XK_q,          killclient,             {0} },
+	{ MODKEY|ShiftMask,             XK_c,          quit,                   {0} },
 	{ MODKEY|ShiftMask,             XK_F5,         xrdb,                   {.v = NULL } },
 	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,          setlayout,              {.v = &layouts[1]} },
