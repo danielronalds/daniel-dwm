@@ -5,7 +5,7 @@
 
 
 /* appearance */
-static const unsigned int borderpx       = 3;   /* border pixel of windows */
+static const unsigned int borderpx       = 2;   /* border pixel of windows */
 static const unsigned int snap           = 32;  /* snap pixel */
 static const unsigned int gappih         = 20;  /* horiz inner gap between windows */
 static const unsigned int gappiv         = 10;  /* vert inner gap between windows */
@@ -30,34 +30,36 @@ static const char dmenufont[]            = "monospace:size=12";
 static char c000000[]                    = "#000000"; // placeholder value
 
 static char normfgcolor[]                = "#bbbbbb";
+// static char normfgcolor[]                = "#D9E0EE";
 static char normbgcolor[]                = "#222222";
+// static char normbgcolor[]                = "#1E1E2E";
 static char normbordercolor[]            = "#444444";
 static char normfloatcolor[]             = "#db8fd9";
 
-static char selfgcolor[]                 = "#eeeeee";
-static char selbgcolor[]                 = "#005577";
-static char selbordercolor[]             = "#005577";
-static char selfloatcolor[]              = "#005577";
+static char selfgcolor[]                 = "#ebdbb2"; //#eeeeee
+static char selbgcolor[]                 = "#d79921"; //#005577
+static char selbordercolor[]             = "#d79921"; //#005577
+static char selfloatcolor[]              = "#d79921"; //#005577
 
 static char titlenormfgcolor[]           = "#bbbbbb";
 static char titlenormbgcolor[]           = "#222222";
 static char titlenormbordercolor[]       = "#444444";
 static char titlenormfloatcolor[]        = "#db8fd9";
 
-static char titleselfgcolor[]            = "#eeeeee";
-static char titleselbgcolor[]            = "#005577";
-static char titleselbordercolor[]        = "#005577";
-static char titleselfloatcolor[]         = "#005577";
+static char titleselfgcolor[]            = "#ebdbb2"; //#eeeeee
+static char titleselbgcolor[]            = "#d79921"; //#005577
+static char titleselbordercolor[]        = "#d79921"; //#005577
+static char titleselfloatcolor[]         = "#d79921"; //#005577
 
 static char tagsnormfgcolor[]            = "#bbbbbb";
 static char tagsnormbgcolor[]            = "#222222";
 static char tagsnormbordercolor[]        = "#444444";
 static char tagsnormfloatcolor[]         = "#db8fd9";
 
-static char tagsselfgcolor[]             = "#eeeeee";
-static char tagsselbgcolor[]             = "#005577";
-static char tagsselbordercolor[]         = "#005577";
-static char tagsselfloatcolor[]          = "#005577";
+static char tagsselfgcolor[]             = "#ebdbb2"; //#eeeeee
+static char tagsselbgcolor[]             = "#d79921"; //#005577
+static char tagsselbordercolor[]         = "#d79921"; //#005577
+static char tagsselfloatcolor[]          = "#d79921"; //#005577
 
 static char hidnormfgcolor[]             = "#005577";
 static char hidselfgcolor[]              = "#227799";
@@ -88,7 +90,7 @@ static char *colors[][ColCount] = {
 
 
 static const char *const autostart[] = {
-    "sh", "-c", "/home/daniel/bar.sh", NULL,
+    "sh", "-c", "/home/daniel/.dwm/dwmbar", NULL,
 	NULL /* terminate */
 };
 
