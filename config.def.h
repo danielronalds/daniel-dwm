@@ -5,7 +5,7 @@
 
 
 /* appearance */
-static const unsigned int borderpx       = 2;   /* border pixel of windows */
+static const unsigned int borderpx       = 1;   /* border pixel of windows */
 static const unsigned int snap           = 32;  /* snap pixel */
 static const unsigned int gappih         = 20;  /* horiz inner gap between windows */
 static const unsigned int gappiv         = 10;  /* vert inner gap between windows */
@@ -20,6 +20,7 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int showsystray             = 1;   /* 0 means no systray */
 
 /* Indicators: see patch/bar_indicators.h for options */
+//static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
@@ -29,47 +30,48 @@ static const char dmenufont[]            = "monospace:size=12";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
-static char normfgcolor[]                = "#bbbbbb";
-// static char normfgcolor[]                = "#D9E0EE";
-static char normbgcolor[]                = "#222222";
-// static char normbgcolor[]                = "#1E1E2E";
-static char normbordercolor[]            = "#444444";
-static char normfloatcolor[]             = "#db8fd9";
+static char normfgcolor[]                = "#ebdbb2"; //#bbbbbb
+static char normbgcolor[]                = "#282828"; //#222222
+static char normbordercolor[]            = "#504945"; //#444444
+static char normfloatcolor[]             = "#d79921"; //#db8fd9
 
+/* Active Window border color */
 static char selfgcolor[]                 = "#ebdbb2"; //#eeeeee
 static char selbgcolor[]                 = "#d79921"; //#005577
 static char selbordercolor[]             = "#d79921"; //#005577
 static char selfloatcolor[]              = "#d79921"; //#005577
 
-static char titlenormfgcolor[]           = "#bbbbbb";
-static char titlenormbgcolor[]           = "#222222";
-static char titlenormbordercolor[]       = "#444444";
-static char titlenormfloatcolor[]        = "#db8fd9";
+static char titlenormfgcolor[]           = "#ebdbb2"; //#bbbbbb
+static char titlenormbgcolor[]           = "#282828"; //#222222
+static char titlenormbordercolor[]       = "#504945"; //#444444 
+static char titlenormfloatcolor[]        = "#d79921"; //#db8fd9
 
+/* Center title bar color */
 static char titleselfgcolor[]            = "#ebdbb2"; //#eeeeee
 static char titleselbgcolor[]            = "#d79921"; //#005577
 static char titleselbordercolor[]        = "#d79921"; //#005577
 static char titleselfloatcolor[]         = "#d79921"; //#005577
 
-static char tagsnormfgcolor[]            = "#bbbbbb";
-static char tagsnormbgcolor[]            = "#222222";
-static char tagsnormbordercolor[]        = "#444444";
-static char tagsnormfloatcolor[]         = "#db8fd9";
+static char tagsnormfgcolor[]            = "#ebdbb2"; //#bbbbbb
+static char tagsnormbgcolor[]            = "#282828"; //#222222
+static char tagsnormbordercolor[]        = "#504945"; //#444444
+static char tagsnormfloatcolor[]         = "#d79921"; //#db8fd9
 
+/* Colors for the tag icons */
 static char tagsselfgcolor[]             = "#ebdbb2"; //#eeeeee
 static char tagsselbgcolor[]             = "#d79921"; //#005577
 static char tagsselbordercolor[]         = "#d79921"; //#005577
 static char tagsselfloatcolor[]          = "#d79921"; //#005577
 
-static char hidnormfgcolor[]             = "#005577";
-static char hidselfgcolor[]              = "#227799";
-static char hidnormbgcolor[]             = "#222222";
-static char hidselbgcolor[]              = "#222222";
+static char hidnormfgcolor[]             = "#d79921"; //#005577
+static char hidselfgcolor[]              = "#fabd2f"; //#227799
+static char hidnormbgcolor[]             = "#282828"; //#222222
+static char hidselbgcolor[]              = "#282828"; //#222222
 
-static char urgfgcolor[]                 = "#bbbbbb";
-static char urgbgcolor[]                 = "#222222";
-static char urgbordercolor[]             = "#ff0000";
-static char urgfloatcolor[]              = "#db8fd9";
+static char urgfgcolor[]                 = "#ebdbb2"; //#bbbbbb
+static char urgbgcolor[]                 = "#282828"; //#222222
+static char urgbordercolor[]             = "#fb4934"; //#ff0000
+static char urgfloatcolor[]              = "#d79921"; //#db8fd9
 
 
 
@@ -158,7 +160,7 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "Gimp", .tags = 1 << 4)
+	// RULE(.class = "Gimp", .tags = 1 << 4)
 	RULE(.class = "Firefox", .tags = 1 << 7)
 };
 
