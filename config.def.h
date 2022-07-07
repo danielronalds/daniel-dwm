@@ -92,7 +92,8 @@ static char *colors[][ColCount] = {
 
 
 static const char *const autostart[] = {
-    "sh", "-c", "/home/daniel/.dwm/dwmbar", NULL,
+    //"sh", "-c", "/home/daniel/.dwm/dwmbar", NULL,
+    "dwmbar", NULL,
 	NULL /* terminate */
 };
 
@@ -161,7 +162,7 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	// RULE(.class = "Gimp", .tags = 1 << 4)
-	RULE(.class = "Firefox", .tags = 1 << 7)
+	// RULE(.class = "Firefox", .tags = 1 << 7)
 };
 
 
@@ -242,7 +243,7 @@ static const char *brightnessdown[] = {"light", "-U", "5", NULL};
 static const char *volumeup[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "+10%", NULL};
 static const char *volumedown[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "-10%", NULL};
 //static const char *volumetoggle[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "toggle", NULL};
-static const char *volumetoggle[] = {"amixer", "set", "Master", "toggle", NULL};
+static const char *volumetoggle[] = {"amixer", "-D","pulse", "sset", "Master", "toggle", NULL};
 
 static Key keys[] = {
 	/* modifier                     key            function                argument */
