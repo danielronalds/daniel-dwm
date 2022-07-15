@@ -4,4 +4,4 @@ This is my patched version of dwm, themed with the gruvbox dark medium colorsche
 ![](main.png)
 
 Patched with the help of the dwm-flexipatch project
-https://github.com/bakkeby/dwm-flexipatch
+[Link](https://github.com/bakkeby/dwm-flexipatch)
