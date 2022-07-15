@@ -25,8 +25,8 @@ static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const int quit_empty_window_count = 0;   /* only allow dwm to quit if no (<= count) windows are open */
-static const char *fonts[]               = { "FontAwesome:size=14" };
-static const char dmenufont[]            = "FontAwesome:size=14";
+static const char *fonts[]               = { "JetBrains Mono:size=13" };
+static const char dmenufont[]            = "JetBrains Mono:size=13";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -126,7 +126,7 @@ static const char *const autostart[] = {
  * them. This works seamlessly with alternative tags and alttagsdecoration patches.
  */
 static char *tagicons[][NUMTAGS] = {
-	[DEFAULT_TAGS]        = { "", "", "", "", "", "6", "7", "8", "" },
+	[DEFAULT_TAGS]        = { "", "", "", "", "", "", "ﯚ", "", "" },
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
@@ -162,7 +162,7 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	// RULE(.class = "Gimp", .tags = 1 << 4)
-	// RULE(.class = "Firefox", .tags = 1 << 7)
+	// RULE(.class = "firefox", .tags = 1 << 1) // Spawns firefox on tag 2
 };
 
 
