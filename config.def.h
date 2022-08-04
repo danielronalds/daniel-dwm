@@ -126,7 +126,7 @@ static const char *const autostart[] = {
  * them. This works seamlessly with alternative tags and alttagsdecoration patches.
  */
 static char *tagicons[][NUMTAGS] = {
-	[DEFAULT_TAGS]        = { "", "", "", "", "", "", "ﯚ", "", "" },
+	[DEFAULT_TAGS]        = { "", "", "", "", "", "", "ﯚ", "", "" },
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
@@ -230,10 +230,15 @@ static const char *dmenucmd[] = {
 	"-sf", selfgcolor,
 	NULL
 };
+// Applications
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
 static const char *filemanagercmd[]  = { "nemo", NULL };
 static const char *virtualmachinescmd[]  = { "virt-manager", NULL };
+
+// Utility
+static const char *screenshotcmd[]  = { "gnome-screenshot", NULL };
+static const char *bluetoothcmd[]  = { "blueman-manager", NULL };
 
 // Brightness command
 static const char *brightnessup[] = {"light", "-A", "5", NULL};
@@ -254,6 +259,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return,     spawn,                  {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_f,          spawn,                  {.v = filemanagercmd } },
 	{ MODKEY|ShiftMask,             XK_v,          spawn,                  {.v = virtualmachinescmd } },
+
+	{ MODKEY|ShiftMask,             XK_s,          spawn,                  {.v = screenshotcmd } },
+	{ MODKEY|ShiftMask,             XK_b,          spawn,                  {.v = bluetoothcmd } },
 
     // Volume Keys
     {0,                             XF86XK_AudioRaiseVolume, spawn,        {.v = volumeup } },
