@@ -93,7 +93,7 @@ static char *colors[][ColCount] = {
 
 static const char *const autostart[] = {
     //"sh", "-c", "/home/daniel/.dwm/dwmbar", NULL,
-    "dwmbar", NULL,
+    "dwmbarstart", NULL,
 	NULL /* terminate */
 };
 
@@ -250,6 +250,9 @@ static const char *volumedown[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@",
 //static const char *volumetoggle[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "toggle", NULL};
 static const char *volumetoggle[] = {"amixer", "-D","pulse", "sset", "Master", "toggle", NULL};
 
+// Command to refresh the bar
+static const char *refreshbar[] = { "refresh", "dwmbar", NULL};
+
 static Key keys[] = {
 	/* modifier                     key            function                argument */
 
@@ -265,12 +268,16 @@ static Key keys[] = {
 
     // Volume Keys
     {0,                             XF86XK_AudioRaiseVolume, spawn,        {.v = volumeup } },
+    {0,                             XF86XK_AudioRaiseVolume, spawn,        {.v = refreshbar } }, // Refresh bar
     {0,                             XF86XK_AudioLowerVolume, spawn,        {.v = volumedown } },
+    {0,                             XF86XK_AudioLowerVolume, spawn,        {.v = refreshbar } }, // Refresh bar
     {0,                             XF86XK_AudioMute,        spawn,        {.v = volumetoggle } },
 
     // Brightness Keys
     {0,                             XF86XK_MonBrightnessUp,  spawn,        {.v = brightnessup } },
+    {0,                             XF86XK_MonBrightnessUp,  spawn,        {.v = refreshbar } },
     {0,                             XF86XK_MonBrightnessDown,spawn,        {.v = brightnessdown } },
+    {0,                             XF86XK_MonBrightnessDown,spawn,        {.v = refreshbar } },
 
 	{ MODKEY,                       XK_b,          togglebar,              {0} },
 	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },
